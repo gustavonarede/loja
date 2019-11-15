@@ -1,0 +1,1967 @@
+//FONTES DA PÁGINA EDITAR
+
+ <script src="{$GET_TEMA}/tema/js/tinymce/tinymce.min.js"></script>      
+
+<h4 class="text-center"> Editar produto </h4>
+<hr>
+  
+
+<!-- começa os campos para form produto    -->
+<section class="row" id="camposproduto">
+                                           <!--  enctype="multipart/form-data"  -->
+    <form name="frm_produto" method="post" action=""  enctype="multipart/form-data">
+        
+        <div class="col-md-6">
+            <label>Produto</label>
+            <input type="text" name="pro_nome" id="pro_nome" class="form-control"  required value="{$PRO.1.pro_nome}">
+            
+        </div>
+        
+        
+        
+        <div class="col-md-4">
+            <label>Catogoria</label>
+         
+            <select name="pro_categoria" id="pro_categoria" class="form-control" required>
+              
+                <option value="{$PRO.1.cate_id}"> {$PRO.1.cate_nome} </option>                           
+                <option value=""> Escolha</option>                           
+                    {foreach from=$CATEGORIAS item=C}                    
+                <option value="{$C.cate_id}">{$C.cate_nome}</option>                                        
+                    {/foreach}                
+            </select>
+            
+            
+        </div>
+        
+        
+        
+        
+        <div class="col-md-2">
+            <label>Ativo</label>
+            <select name="pro_ativo" id="pro_cativo" class="form-control" required >
+              
+                <option value="{$PRO.1.pro_ativo}"> {$PRO.1.pro_ativo} </option>
+                <option value=""> Escolha </option>
+                <option value="NAO"> Não </option>
+                <option value="SIM"> Sim </option>
+                
+            </select>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+           <div class="col-md-3">
+            <label>Modelo</label>
+            <input type="text" name="pro_modelo" id="pro_modelo" class="form-control " value="{$PRO.1.pro_modelo}"  >
+            
+        </div>
+        
+        
+           <div class="col-md-2">
+            <label>Referencia</label>
+            <input type="text" name="pro_ref" id="pro_ref" class="form-control" value="{$PRO.1.pro_ref}" >
+            
+        </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Valor</label>
+            <input type="text" name="pro_valor" id="pro_valor" class="form-control" required value="{$PRO.1.pro_valor}">
+            
+        </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Estoque</label>
+            <input type="text" name="pro_estoque" id="pro_estoque" class="form-control" required value="{$PRO.1.pro_estoque}">
+            
+          </div>
+        
+        
+        
+           <div class="col-md-2">
+            <label>Peso</label>
+            <input type="text" name="pro_peso" id="pro_peso" class="form-control" required value="{$PRO.1.pro_peso}">
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Altura</label>
+            <input type="text" name="pro_altura" id="pro_altura" class="form-control" required value="{$PRO.1.pro_altura}">
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Largura</label>
+            <input type="text" name="pro_largura" id="pro_largura" class="form-control" required value="{$PRO.1.pro_largura}">
+            
+          </div>
+        
+        
+           <div class="col-md-2">
+            <label>Comprimento</label>
+            <input type="text" name="pro_comprimento" id="pro_comprimento" class="form-control" required value="{$PRO.1.pro_comprimento}">
+            
+          </div>
+        
+       
+        <div class="col-md-12">
+            
+            <div class="col-md-4">
+               <hr> 
+               <img src="{$PRO.1.pro_img}" class="thumbnail" alt="">
+                
+            </div>
+            
+            <div class="col-md-4">
+            
+                 <hr>
+                 <label>Imagem Principal</label>
+                 <!--- campos para adicionar a imagem---->
+                 <input type="file" name="pro_img" class="form-control btn btn-success" id="pro_img">
+                 <!--pega o nome da imagem atual -->
+                 <input type="hidden" name="pro_img_atual" id="pro_img_atual" value="{$PRO.1.pro_img_atual}">
+                 <!----pega o caminho completo da imagem atual -->
+                 <input type="hidden" name="pro_img_arquivo" id="pro_img_arquivo" value="{$PRO.1.pro_img_arquivo}">
+              
+
+          
+            </div>
+            
+            <div class="col-md-4">
+                
+           
+            
+            </div>
+            
+
+            
+        </div>
+        
+        
+        
+           <div class="col-md-12">
+            <label>Descrição</label>
+           
+            <textarea name="pro_desc" id="pro_desc" rows="5" class="form-control" >{$PRO.1.pro_desc}</textarea>
+
+              <script> 
+              tinymce.init({ selector:'textarea'  });
+              </script> 
+          
+          
+      
+            
+         
+          
+          </div>
+        
+           <div class="col-md-12">
+            <label>Slug</label>
+            <input type="text" readonly name="pro_slug" id="pro_slug"   class="form-control" value="{$PRO.1.pro_slug}">
+            
+          </div>
+        
+        <!-- botão gravar -->
+    
+      
+            
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-4">
+                <br>
+                <button class="btn btn-success btn-block btn-lg" name="btn_gravar"> Gravar </button>
+            </div>
+
+            <div class="col-md-4 text-right">
+               
+            </div>
+
+    
+        <input type="hidden" name="pro_id" value="{$PRO.1.pro_id}">
+        
+        
+    </form>
+    
+    
+    
+    
+</section>
+        
+        
+        
+        <!---bloco de apagar o produto -->
+        <section class="row">
+
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-4">
+
+
+            </div>
+
+            <div class="col-md-4 text-right">
+                <!--- botão que abre a opção de apagar -->
+                <br>
+                <button class="btn btn-danger " name="btn_apagar" data-toggle="collapse" data-target="#btnapagar" ><i class="glyphicon glyphicon-remove"></i> Apagar Produto</button> 
+
+            </div>
+
+
+            <div class="col-md-12 text-center collapse alert alert-danger" id="btnapagar">
+
+                <br>
+            
+
+                <form name="frm_apagar" method="post" action="">
+                    <label>Apagar este produto?</label>
+
+                    <input type="radio" name="confirmar" value="SIM" required>
+                    <!---botao que apagar o produto de uma vez -->
+                    <button class="btn btn-danger " name="btn_apagar"><i class="glyphicon glyphicon-remove"></i> OK </button> 
+
+
+
+
+                    <input type="hidden" name="pro_id_apagar" value="{$PRO.1.pro_id}">
+                    <input type="hidden" name="pro_apagar" value="SIM">
+                    
+                       <!----pega o caminho completo da imagem atual -->
+                 <input type="hidden" name="pro_img_arquivo" id="pro_img_arquivo" value="{$PRO.1.pro_img_arquivo}">
+
+                </form>
+
+            </div>
+
+
+        </section>
+        
+
+<br>
+<br>
+<br>
+<br>
+ 
+
+
+
+
+
+
+
+ //ACRESCENTAR NA CLASSE DE PRODUTOS
+
+ 'pro_modelo'   => $lista['pro_modelo'] ,  
+         'pro_estoque'   => $lista['pro_estoque'] ,  
+         'pro_ativo'   => $lista['pro_ativo'] , 
+         'pro_img_arquivo'   => Rotas::get_SiteRAIZ() .'/'. Rotas::get_ImagePasta().$lista['pro_img'], 
+          'pro_img_atual'     => $lista['pro_img'] ,   
+
+
+
+
+
+
+
+FUNÇÃO ALTERAR
+
+
+          function Alterar($id){
+          
+        $query = " UPDATE {$this->prefix}produtos SET pro_nome=:pro_nome, pro_categoria=:pro_categoria," ;
+        $query.= " pro_ativo=:pro_ativo, pro_modelo=:pro_modelo, pro_ref=:pro_ref,";
+        $query.= " pro_valor=:pro_valor, pro_estoque=:pro_estoque, pro_peso=:pro_peso , ";
+        $query.= " pro_altura=:pro_altura, pro_largura=:pro_largura,";
+        $query.= " pro_comprimento=:pro_comprimento ,pro_img=:pro_img, pro_desc=:pro_desc, pro_slug=:pro_slug";
+       $query.= " WHERE pro_id = :pro_id";
+        // $query.= " VALUES ";
+       // $query.= " ( :pro_nome, :pro_categoria, :pro_ativo, :pro_modelo, :pro_ref, :pro_valor, :pro_estoque, :pro_peso ,";
+      //  $query.= " :pro_altura, :pro_largura, :pro_comprimento ,:pro_img, :pro_desc, :pro_slug)";
+        
+        $params = array(
+        ':pro_nome'=> $this->getPro_nome(),   
+        ':pro_categoria'=> $this->getPro_categoria(),   
+        ':pro_ativo'=> $this->getPro_ativo(),   
+        ':pro_modelo'=> $this->getPro_modelo(),   
+        ':pro_ref'=> $this->getPro_ref(),   
+        ':pro_valor'=> $this->getPro_valor(),   
+        ':pro_estoque'=> $this->getPro_estoque(),   
+        ':pro_peso'=> $this->getPro_peso(),   
+        ':pro_altura'=> $this->getPro_altura() , 
+        ':pro_largura'=> $this->getPro_largura(),
+        ':pro_comprimento'=> $this->getPro_comprimento(),   
+        ':pro_img'=> $this->getPro_img(),   
+        ':pro_desc'=> $this->getPro_desc(),   
+        ':pro_slug'=> $this->getPro_slug(),   
+        ':pro_id'=> (int)$id,   
+                     
+        );
+        
+           
+        
+           // executo a SQL
+           if($this->ExecuteSQL($query, $params)):
+               
+                   return TRUE;
+               
+               else:
+                   
+                   return FALSE; 
+               
+           endif;
+        
+        
+           
+           
+        }
+
+
+
+
+
+
+
+HTML PAGINA IMG PRODUTOS
+
+<h4 class="text-center"> Imagens do produto</h4>
+<hr>
+
+<!--- formulario de envio da foto -->
+<section class="row" id="novaimg">
+    
+    <form name="nova" method="post" action=""  enctype="multipart/form-data">
+
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <input type="hidden" name="pro_id" value="{$PRO}">
+
+            <input type="file" name="pro_img"  class="form-control"  required>
+            <br>
+
+            
+
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success "> Enviar </button> 
+
+
+        </div>
+            
+            
+    </form> 
+    
+</section>
+
+<hr>
+
+<!-- listando as imagens que existem no produto-->
+<section class="row" id="listarimg">
+    
+    <!-- formulario de apagar a foto ou varias -->
+    <form name="deletar" method="post" action="">
+      
+    
+        <ul style="list-style: none">
+                  {foreach from=$IMAGES item=I}
+
+                      <li class="col-md-3 ">
+                          <img src="{$I.img_nome}" alt="" class="thumbnail">
+
+                          <label>Apagar?</label> 
+                          <input type="checkbox" class=" input-lg" name="fotos_apagar[]" value="{$I.img_arquivo}">   
+                      
+                     
+                      </li>
+
+                      
+                      
+                      
+                  {/foreach}
+                  
+                      <input type="hidden" name="pro_id" value="{$I.img_pro_id}">
+              </ul>
+    
+              
+                <!--- botao de apagar fotos -->
+                <br>
+              <section class="col-md-12 text-center" id="apagar">
+                <hr>
+                
+                  <button class="btn btn-danger"> Apagar Marcadas </button>
+                  
+                  
+              </section>
+              <br>
+              <br>
+              <br>
+              
+              
+    </form>
+</section>
+              <section>
+                  
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+              </section>      
+
+
+
+
+
+
+
+
+
+
+QUERY PARA INSERIR IMAGENS
+
+  public function Insert($img,$produto){
+        
+        $query = "INSERT INTO {$this->prefix}imagens (img_nome,img_pro_id)";
+        $query.= " VALUES (:img_nome,:img_pro_id) ";
+        
+        $params = array(':img_nome'=>$img, ':img_pro_id'=> (int)$produto);
+        
+        $this->ExecuteSQL($query, $params);
+        
+        
+    }
+
+
+
+
+
+
+QUERY PARA DELETAR IMAGENS SECUNDÁRIAS
+
+ public function Deletar($img_nome){
+        
+        
+        $query = " DELETE FROM {$this->prefix}imagens ";
+        $query .= " WHERE img_nome = :img_nome ";
+        
+        $params = array(':img_nome'=>$img_nome);
+        
+        $this->ExecuteSQL($query, $params);
+        
+    }
+
+
+
+
+
+
+
+    PAGINA CATEGORIAS TPL ADMIN
+
+    <h4 class="text-center"> Gerenciar categorias </h4>
+<hr>
+
+<section class="row">
+    
+    <form name="categoriainsere" method="post" action="">
+        
+        <div class="col-md-4">
+            <input type="text" name="cate_nome" class="form-control" required>  
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success" name="cate_nova" value="cate_nova"> Inserir nova </button>
+            
+        </div>
+        <div class="col-md-4"></div>
+        
+        
+    </form>
+    
+</section>
+<hr>
+
+<!-- section listar categorias -->
+<section class="row" id="listarcategorias">
+    
+    <center>
+    <table class="table table-bordered" style="width: 90%">
+        
+      
+        {foreach from=$CATEGORIAS item=C}
+            <form name="categorias_editar" method="post" action="">
+               
+                <tr>
+
+                    <td style="width: 70%">
+                         <input type="text" name="cate_nome" value="{$C.cate_nome}" class="form-control" required> 
+                          <input type="hidden" name="cate_id" value="{$C.cate_id}">
+                    </td>
+                       
+                    <td>
+                        <button class="btn btn-success" name="cate_editar" value="cate_editar">Editar</button>
+                    </td>
+                   
+                    <td>
+                        <button class="btn btn-danger" name="cate_apagar" value="cate_apagar">Apagar</button>
+                    </td>
+
+
+                </tr>        
+
+            </form>
+            
+        {/foreach}
+        
+    </table>
+    </center>
+    
+    
+</section>
+
+
+
+
+
+
+
+
+//QUERY PARA INSERIR CATEGORIAS
+
+ function Inserir($cate_nome){
+        
+        // trato os campos
+        $this->setCate_nome($cate_nome);
+        $this->setCate_slug($cate_nome);
+        
+        // monto a SQL
+        $query = " INSERT INTO {$this->prefix}categorias (cate_nome, cate_slug )";
+        $query.= " VALUES (:cate_nome, :cate_slug )";
+        // passo so parametros
+        $params = array(':cate_nome' => $this->getCate_nome(),
+                        ':cate_slug' => $this->getCate_slug(),
+                      
+            );
+        // executo a minha SQL
+            if($this->ExecuteSQL($query, $params)):
+                return TRUE;
+                
+            else:
+                return FALSE;
+                
+            endif;
+        
+        
+    }
+    
+
+
+
+
+    //MÉTODOS GET E SET CATEGORIAS
+
+
+    function getCate_nome() {
+        return $this->cate_nome;
+    }
+
+    function getCate_slug() {
+        return $this->cate_slug;
+    }
+
+
+
+    function setCate_nome($cate_nome) {
+       
+        $this->cate_nome = filter_var($cate_nome, FILTER_SANITIZE_STRING);
+    }
+
+    function setCate_slug($cate_slug) {
+       
+        
+        $this->cate_slug = Sistema::GetSlug($cate_slug);
+    }
+
+
+
+
+
+//FUNCAO EDITAR
+
+function Editar($cate_id,$cate_nome){
+        
+        // trato os campos
+        $this->setCate_nome($cate_nome);
+        $this->setCate_slug($cate_nome);
+        
+        // monto a SQL
+        $query = " UPDATE {$this->prefix}categorias ";
+        $query.= " SET cate_nome = :cate_nome, cate_slug = :cate_slug ";
+        $query.= " WHERE cate_id = :cate_id ";
+        // passo so parametros
+        $params = array(':cate_nome' => $this->getCate_nome(),
+                        ':cate_slug' => $this->getCate_slug(),
+                        ':cate_id'   => (int)$cate_id,
+            );
+        // executo a minha SQL
+            if($this->ExecuteSQL($query, $params)):
+                return TRUE;
+                
+            else:
+                return FALSE;
+                
+            endif;
+        
+        
+    }
+
+
+
+
+
+
+    //FUNÇÃO APAGAR CATEGORIAS
+
+   function Apagar($cate_id){
+        
+          // verifico se  tenho itens antes de apagar a categoria
+          $pro = new Produtos();
+          $pro->GetProdutosCateID($cate_id);
+          
+        if( $pro->TotalDados() > 0):
+              echo '<div class="alert alert-danger" > Esta categoria tem: ';
+              echo $pro->TotalDados();
+              echo ' produtos. Não pode ser apagada, para apagar precisa primeiro apagar os produtos dela </div>';
+     
+              // se nao tiver produtos nela  eu apago 
+         else:
+            
+                 // monto a SQL
+        $query = " DELETE FROM {$this->prefix}categorias";
+        $query.= " WHERE cate_id = :id";
+        
+        // passo os parametros
+        $params = array(':id' => (int)$cate_id);
+        // executo a SQL
+    
+         if($this->ExecuteSQL($query, $params)):
+                return TRUE;
+                
+            else:
+                return FALSE;
+                
+            endif;
+        
+        endif;
+     
+        
+    }
+
+
+
+
+
+
+
+CLASSE DE CLIENTS - FUNÇÕES PARA BUSCAR
+
+  */
+    function GetClientes(){
+        
+        $query = " SELECT * FROM {$this->prefix}clientes ";
+        
+        $this->ExecuteSQL($query);
+        
+        $this->GetLista();
+        
+        
+    }
+   /**
+    * 
+    * @param INT $id id do cliente 
+    */
+    function GetClientesID($id){
+        
+        // monto a SQL
+        $query  = " SELECT * FROM {$this->prefix}clientes ";
+        $query .= " WHERE cli_id = :id ";
+        // passo parametros
+        $params = array(':id'=>(int)$id);
+        //executo a SQL
+        $this->ExecuteSQL($query, $params);
+        // chamo a listagem 
+        $this->GetLista();
+        
+        
+    }
+
+
+/**
+ * fazendo a listagem dos dados retornados 
+ */
+ private function GetLista(){
+        
+        $i = 1;
+        while ($lista = $this->ListarDados()):
+            
+        $this->itens[$i] = array(
+        
+             'cli_id'        =>  $lista['cli_id'],
+             'cli_nome'      =>  $lista['cli_nome'],
+             'cli_sobrenome' =>  $lista['cli_sobrenome'],
+             'cli_endereco'  =>  $lista['cli_endereco'],
+             'cli_numero'    =>  $lista['cli_numero'],
+             'cli_bairro'    =>  $lista['cli_bairro'],
+             'cli_cidade'    =>  $lista['cli_cidade'],
+             'cli_uf'        =>  $lista['cli_uf'],
+             'cli_cpf'       =>  $lista['cli_cpf'],
+             'cli_cep'       =>  $lista['cli_cep'],
+             'cli_rg'        =>  $lista['cli_rg'],
+             'cli_ddd'       =>  $lista['cli_ddd'],
+             'cli_fone'      =>  $lista['cli_fone'],
+             'cli_email'     =>  $lista['cli_email'],
+             'cli_celular'   =>  $lista['cli_celular'],
+             'cli_pass'      =>  $lista['cli_pass'],
+             'cli_data_nasc' =>  $lista['cli_data_nasc'],
+             'cli_hora_cad'  => $lista['cli_hora_cad'],
+             'cli_data_cad'  =>  Sistema::Fdata($lista['cli_data_cad']),
+           
+            
+        );
+        
+        
+            $i++;
+        
+        endwhile;
+        
+        
+    }
+
+
+
+
+
+
+
+
+
+PAGINA ADM CLIENTES
+
+<h4 class="text-center">Gerenciar Clientes </h4>
+<hr>
+
+<!--- listando clientes ---->
+<section class="row">
+    
+    <center>
+    <table class="table table-bordered">
+    
+        
+        <tr class="text-success bg-success">
+            <td></td>
+            <td>Nome</td>
+            <td>Email </td>
+            <td>Fone </td>
+            <td>Data cad</td>
+            <td></td>
+            
+        </tr>
+        
+        {foreach from=$CLIENTES item=C}
+        
+        <tr>
+            <td><a href="{$PAG_PEDIDOS}/{$C.cli_id} " class="btn btn-info">Pedidos</a> </td>
+            <td>{$C.cli_nome} {$C.cli_sobrenome}</td>
+            <td>{$C.cli_email}</td>
+            <td>{$C.cli_fone}</td>
+            <td>{$C.cli_data_cad}</td>
+            <td>
+                <a href="{$PAG_EDITAR}/{$C.cli_id}" class="btn btn-info"> Ver </a>
+                
+            </td>
+            
+        </tr>
+        
+        {/foreach}
+        
+    </table>
+    </center >
+    
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+//FUNCAO EDITAR CLIENTES ADM
+
+ function EditarADM($id){
+        
+              
+          // verifico se ja tem este CPF no banco
+        if($this->GetClienteCPF($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_REQUEST['cli_cpf']):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> Este CPF já esta cadastrado ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+                exit();
+        endif;
+          // verifica se o email já esta cadstrado 
+          if($this->GetClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() !=  $_REQUEST['cli_email']):
+                echo '<div class="alert alert-danger " id="erro_mostrar"> Este Email já esta cadastrado ';
+                Sistema::VoltarPagina();
+                echo '</div>';
+                exit();
+        endif;
+        
+        
+        // caso passou na verificação grava no banco
+        
+        $query = " UPDATE {$this->prefix}clientes SET cli_nome=:cli_nome, cli_sobrenome=:cli_sobrenome,cli_data_nasc=:cli_data_nasc,cli_rg=:cli_rg,";
+        $query .=" cli_cpf=:cli_cpf, cli_ddd=:cli_ddd,cli_fone=:cli_fone,cli_celular=:cli_celular ,cli_endereco=:cli_endereco ,cli_numero=:cli_numero,cli_bairro=:cli_bairro ,";
+        $query .=" cli_cidade=:cli_cidade ,cli_uf=:cli_uf ,cli_cep=:cli_cep ,cli_email=:cli_email  ";   
+        $query .=" WHERE  cli_id = :cli_id";
+      //  $query .=" (:cli_nome, :cli_sobrenome,:cli_data_nasc,:cli_rg,";
+      //  $query .=" :cli_cpf, :cli_ddd,:cli_fone,:cli_celular ,:cli_endereco ,:cli_numero,:cli_bairro ,";
+      //  $query .=" :cli_cidade ,:cli_uf ,:cli_cep ,:cli_email ,:cli_data_cad, :cli_hora_cad, :cli_senha)";  
+   
+        $params = array(
+        ':cli_nome'     => $this->getCli_nome() ,    
+        ':cli_sobrenome'=> $this->getCli_sobrenome() ,   
+        ':cli_data_nasc'=> $this->getCli_data_nasc() ,   
+        ':cli_rg'       => $this->getCli_rg() ,   
+        ':cli_cpf'      => $this->getCli_cpf() ,   
+        ':cli_ddd'      => $this->getCli_ddd() ,   
+        ':cli_fone'     => $this->getCli_fone() ,   
+        ':cli_celular'  => $this->getCli_celular() ,   
+        ':cli_endereco' => $this->getCli_endereco() ,   
+        ':cli_numero'   => $this->getCli_numero() ,   
+        ':cli_bairro'   => $this->getCli_bairro() ,   
+        ':cli_cidade'   => $this->getCli_cidade() ,   
+        ':cli_uf'       => $this->getCli_uf() ,   
+        ':cli_cep'      => $this->getCli_cep() ,   
+        ':cli_email'    => $this->getCli_email() ,   
+       
+        ':cli_id'       => (int)$id   
+            
+        );
+        
+      //  echo $query;
+        
+                   
+            if($this->ExecuteSQL($query, $params)):
+                
+                    return true;
+                
+            else:
+                
+                    return false;
+            endif;
+
+        
+    }
+
+
+
+
+
+
+
+
+
+    ADM PEDIDOS LISTAR PAGINA
+
+    <h4 class="text-center"> Gerenciar Pedidos </h4>
+<hr>
+
+<section class="row" id="pesquisa">
+
+    <!---  faz  uma busca entre datas --->
+    <label> Buscar entre datas</label>
+    <form name="buscardata" method="post" action="">
+     
+        <div class="col-md-3">            
+            <input type="date" name="data_ini" class="form-control" required>
+
+        </div> 
+
+        <div class="col-md-3"> 
+
+            <input type="date" name="data_fim" class="form-control" required>
+
+        </div> 
+
+
+        <div class="col-md-3"> 
+
+            <button class="btn btn-success"> Buscar </button>
+
+        </div> 
+
+
+        <div class="col-md-3">    
+
+        </div> 
+
+
+    </form>
+
+
+
+</section>
+
+<br>
+
+<section class="row">
+
+
+    <!--- faz  uma busca  por texto ---> 
+    <label> Buscar por Referencia</label>
+    <form name="buscarrefcod" method="post" action="">  
+
+        <div class="col-md-3">
+
+            <input type="text" name="txt_ref" class="form-control" required>   
+        </div>
+        <div class="col-md-3">
+
+            <button class="btn btn-success"> Buscar </button>   
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+
+    </form>
+
+
+</section>
+
+<hr>
+
+<section class="row" id="pedidos">
+    
+      
+    <center>
+    <table class="table table-bordered " style="width: 90%">
+        
+        <tr class="text-success bg-success">
+            <td>Cliente</td>
+            <td>Data</td>
+            <td>Hora</td>
+            <td>Ref</td>
+           
+            <td>Status</td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        {foreach from=$PEDIDOS item=P}
+        <tr>
+            
+            <td >{$P.cli_nome} {$P.cli_sobrenome}</td>
+            <td style="width: 10%">{$P.ped_data}</td>
+            <td style="width: 10%">{$P.ped_hora}</td>
+            <td style="width: 10%">{$P.ped_ref}</td>
+          
+            
+            {if $P.ped_pag_status == 'NAO'} 
+             <td style="width: 15%"><span class="label label-danger">{$P.ped_pag_status}</span></td>
+            {else}
+              <td style="width: 15%">{$P.ped_pag_status}</td>
+            {/if}
+             
+    
+            
+            
+             <td style="width: 10%">
+               <!---- formulario que vai para itens do pedido ---->
+                     <form name="itens" method="post" action="{$PAG_ITENS}">
+                     <input type="hidden" name="cod_pedido" id="cod_pedido" value="{$P.ped_cod}">
+                     <button class="btn btn-info"><i class="glyphicon glyphicon-menu-hamburger"></i> Detalhes</button>
+                     </form> 
+             </td>
+       
+        
+        <td>
+              
+           <form name="deletar" method="post" action="">
+                     <input type="hidden" name="cod_pedido" id="cod_pedido" value="{$P.ped_cod}">
+                     <button class="btn btn-danger" name="ped_apagar" value="ped_apagar"><i class="glyphicon glyphicon-remove"></i> </button>
+           </form> 
+        
+        </td>
+            
+        </tr>
+        {/foreach}
+        
+    </table>
+      </center>
+    
+    
+</section>
+      
+
+
+
+
+
+
+//PAGINA ITENS ADM
+
+<h4 class="text-center">Dados do pedido</h4>
+
+<!-- informações sobre o pedido -->
+<section class="row">
+    
+    <center>
+    <table class="table table-bordered" style="width: 80%">
+        <tr class="bg-success">
+            
+            <td><b>Data:</b> {$ITENS.1.ped_data}</td>
+            
+            <td><b>Hora:</b> {$ITENS.1.ped_hora}</td>
+            
+            <td><b>Ref:</b> {$ITENS.1.ped_ref}</td>
+            
+            <td><b>Status:</b> {$ITENS.1.ped_pag_status}</td>
+            
+        </tr>  
+        
+        
+    </table>
+    </center>
+    
+</section>
+
+
+<!-- listagem dos itens --->
+<section class="row" id="listaitens">
+    
+    <center>
+    <table class="table table-bordered" style="width: 80%">
+        
+        <tr class="text-success bg-success">
+            <td></td>
+            <td>Item</td>
+            <td>Valor Uni</td>
+            <td>X</td>
+            <td>Sub</td>
+        </tr>
+        
+        {foreach from=$ITENS item=P}
+        <tr>
+            
+            <td><img src="{$P.item_img}" alt=""> </td>
+            <td> {$P.item_nome}</td>
+            <td class="text-right"> {$P.item_valor}</td>
+            <td class="text-center"> {$P.item_qtd}</td>
+            <td class="text-right"> {$P.item_sub}</td>
+            
+        </tr>
+        
+        {/foreach}
+        
+        
+    </table>
+    </center>
+    
+    
+    
+</section>
+        
+        
+        <section class="row" id="resumo">
+
+            <center>
+                <table class="table table-bordered" style="width: 80%">
+                    <tr>
+
+                        <td class="text-danger"> <b>Frete:</b> {$ITENS.1.ped_frete_valor}</td>
+
+                        <td class="text-danger"> <b>Total:</b> {$TOTAL}</td>
+
+                        <td class="text-danger"> <b>Final:</b> {$ITENS.1.ped_frete_valor+$TOTAL}</td>
+
+                    </tr>  
+
+
+                </table>
+            </center>
+
+        </section>
+
+
+
+
+
+
+
+FUNÇÃO APAGAR PEDIDOS
+
+ function  Apagar($ped_cod){
+        
+        // apagando o PEDIDO  
+        
+        // monto a minha SQL de apagar o pedido 
+        $query =  " DELETE FROM {$this->prefix}pedidos WHERE ped_cod = :ped_cod";        
+        // parametros
+        $params = array(':ped_cod'=>$ped_cod);
+        // executo a minha SQL
+        $this->ExecuteSQL($query, $params);
+        
+        /// apos apagar o pedido apaga ITENS DO PEDIDO  
+        
+                    // monto a minha SQL de apagar os items 
+                 $query =  " DELETE FROM {$this->prefix}pedidos_itens WHERE item_ped_cod = :ped_cod";
+
+                 // parametros
+                 $params = array(':ped_cod'=>$ped_cod);
+                 // executo a minha SQL
+                 if($this->ExecuteSQL($query, $params)):
+                     return TRUE;
+                 endif;
+        
+    }
+
+
+
+
+
+
+
+
+FUNÇÃO PARA BUSCAR PEDIDOS REFERENCIA E DATA
+
+ function GetPedidosREF($ref){
+        
+          // monto a SQL
+        $query = "SELECT * FROM {$this->prefix}pedidos p INNER JOIN {$this->prefix}clientes c";
+        $query.= " ON p.ped_cliente = c.cli_id";        
+        $query .= " WHERE ped_ref = :ref";
+        
+        // passando parametros
+        $params = array(':ref'=>$ref);
+       // executando a SQL                      
+        $this->ExecuteSQL($query,$params);
+        // trazendo a listagem 
+        $this->GetLista();
+    }
+
+
+
+     function GetPedidosDATA($data_ini,$data_fim){
+        
+         // montando a SQL
+        $query = "SELECT * FROM {$this->prefix}pedidos p INNER JOIN {$this->prefix}clientes c";
+        $query.= " ON p.ped_cliente = c.cli_id";
+        
+        $query.= " WHERE ped_data between :data_ini AND :data_fim";
+          
+       // passando os parametros  
+        $params = array(':data_ini'=>$data_ini, ':data_fim'=>$data_fim);
+        
+        // executando a SQL
+        $this->ExecuteSQL($query,$params);
+        
+        $this->GetLista();
+    }
+
+
+
+
+
+
+
+
+// HTML DA PÁGINA DO LOGIN ADM
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Area restrita </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="{$GET_TEMA}/tema/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="{$GET_TEMA}/tema/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+        <script src="{$GET_TEMA}/tema/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- meu aquivo pessoal de CSS-->
+        <link href="{$GET_TEMA}/tema/css/tema.css" rel="stylesheet" type="text/css"/>
+     <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    </head>
+    <body style="background-color: #245269">
+        
+        <section class="container" >
+            
+            
+            <section class="row">
+                
+                <div class="col-md-4"></div>    
+               
+                <div class="col-md-4 thumbnail" id="bloco_login_adm">
+                 
+                    <h4 class="text-center"> Área restrita </h4>
+               
+                    
+                    <form name="login" method="post" action="">
+                        
+                        <label>Email:</label>
+                        <input type="email" name="txt_email" class="form-control" required autocomplete="off">
+                        
+                        
+                        <label>Senha:</label>
+                        <input type="password" name="txt_senha" class="form-control" required>
+                        
+                        <br>
+                        <br>
+                        <button class="btn btn-geral btn-block btn-lg" name="txt_logar" value="txt_logar"> Entrar </button>
+                        <br>
+                        
+                          
+                        
+                    </form>
+                    
+                    <!-- botão senha recovery --->
+                    <br>
+                    <center><button class="btn " data-toggle="collapse" data-target="#recovery"> Esqueci a senha </button></center>
+                    
+                    <div class="alert alert-danger collapse" id="recovery">
+                    
+                        <form name="recovery" method="post" action="">
+                            <label>Digite o email do administrador </label>
+                            <input type="email" name="txt_email" class="form-control" required>
+                            <button class="btn btn-success" name="recovery" value="recovery">Solicitar senha</button>
+                            
+                        </form> 
+                        
+                    </div>
+                    
+                </div>    
+              
+                <div class="col-md-4"></div>    
+                
+                
+            </section>
+            
+            
+            
+        </section>
+        
+        
+    </body>
+</html>
+
+
+
+
+
+
+//CSS ADMIN LOGIN
+
+#bloco_login_adm{
+ background-color: #fff;
+ border-radius: 15px;
+ margin: 20px;
+ padding: 30px;
+    
+    
+}
+
+
+
+
+
+
+//FUNCAO PARA LOGIN DO ADM
+
+ function GetLoginADM($user,$senha){
+        
+        $this->setUser($user);
+        $this->setSenha($senha);
+        
+        $query = "SELECT * FROM {$this->prefix}user WHERE user_email = :email AND user_pw = :senha";
+        
+        $params = array(':email'=>  $this->getUser(),
+                        ':senha'=>  $this->getSenha());
+        
+           $this->ExecuteSQL($query,$params);
+           
+           // caso o login seja efetivado com exito 
+           if($this->TotalDados() > 0):
+               
+             $lista = $this->ListarDados();
+               
+             $_SESSION['ADM']['user_id']     =  $lista['user_id'];
+             $_SESSION['ADM']['user_nome']   =  $lista['user_nome'];
+             $_SESSION['ADM']['user_email']  =  $lista['user_email'];
+             $_SESSION['ADM']['user_pw']     =  $lista['user_pw'];
+             $_SESSION['ADM']['user_data']     = Sistema::DataAtualBR();
+             $_SESSION['ADM']['user_hora']     = Sistema::HoraAtual();
+
+             return TRUE;
+           // caso o login seja incorreto 
+           else:    
+               
+               
+                echo '<h4 class="alert alert-danger"> O login incorreto </h4>';  
+                //  Rotas::Redirecionar(1,  Rotas::pag_ClienteLogin() );
+           
+                return FALSE;
+           endif;
+
+    }
+
+
+
+
+
+
+
+
+PAGINA ADM SENHA
+
+<h3 class="text-center">Alteração de senha de acesso</h3>
+
+
+<form name="alterarsenha" method="post" action="">
+    
+    <section>
+        <div class="col-md-4"></div>
+        
+        <div class="col-md-4">
+            <label>Digite sua senha atual</label>
+          
+            <input type="password" name="adm_senha_atual" id="adm_senha_atual" class="form-control" required>
+          
+           
+            
+            <label>Digite sua nova senha</label>
+          
+            <input type="password" name="adm_senha" id="adm_senha" class="form-control" required>
+            <br>
+           
+            
+            
+            <button type="submit" class="btn btn-success btn-block"> Alterar </button>
+        </div>
+       
+        <div class="col-md-4">
+       
+            
+            
+        </div>
+        
+        
+        
+    </section>
+
+  
+
+    
+    
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+CLASSE USER
+
+<?php
+
+
+class User extends Conexao{
+    
+    private $user, $senha, $email;
+            
+    function __construct() {
+        parent::__construct();
+    }
+    
+    /**
+     * 
+     * @param string $email do USER
+     * @return boolean caso exista 
+     */
+    function GetUserEmail($email){
+        
+        $this->setEmail($email);
+        
+        $query = " SELECT * FROM {$this->prefix}user WHERE user_email = :email ";
+        
+        $params = array(':email'=>  $this->getEmail());
+        
+        $this->ExecuteSQL($query, $params);
+        
+        return $this->TotalDados();
+        
+    }
+    
+    /**
+     * alterar a senha  do USER
+     */
+    function AlterarSenha($senha,$email){
+        
+        // setando email e senha
+        $this->setSenha($senha);
+        $this->setEmail($email);
+        // montando a SQL
+        $query = "UPDATE {$this->prefix}user SET user_pw = :senha";
+        $query.= " WHERE user_email = :email";
+        // passando parametros
+        $params = array(':senha' => $this->getSenha(), ':email' => $this->getEmail());
+        // executando a SQL
+        if ($this->ExecuteSQL($query, $params)):
+
+            return TRUE;
+        else:
+            return FALSE;
+        endif;
+    }
+
+
+
+
+
+
+
+
+
+
+    ///  SÃO OS GETTERS E SETTERS 
+    
+    
+    function getUser() {
+        return $this->user;
+    }
+
+    function getSenha() {
+        return $this->senha;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function setUser($user) {
+        $this->user = $user;
+    }
+
+    function setSenha($senha) {
+        $this->senha = md5($senha);
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+CHAMADA DO MÉTODO ALTERAR SENHA ADM
+
+$user = new User();
+   if ($user->AlterarSenha($senha_nova, $email)):
+
+
+         // apos alterar envia email com a nova senha
+         $enviar = new EnviarEmail();
+         
+         $assunto = 'Alteração da senha ADM no site '. Sistema::DataAtualBR();
+         $destinatarios = array($email,  Config::SITE_EMAIl_ADM);
+         $msg = '<h3> Foi feito alteração de senha ADM no site neste momento, nova senha:  ' . $senha_nova .'</h3>';
+                  
+         $enviar->Enviar($assunto, $msg, $destinatarios);
+        // fim do email 
+      
+        echo '<div class="alert alert-success"> Senha alterada com sucesso! Já pode fazer login com sua nova senha </div>';
+       
+       // faz redirecioamento para LOGOFF
+        Rotas::Redirecionar(2, Rotas::get_SiteADM() . '/logoff');
+
+    else:
+
+        echo '<div class="alert alert-danger"> Erro ao tentar alterar a senha  </div>';
+
+
+    endif;
+
+
+
+
+
+
+
+
+
+    RECUPERAR SENHA DO ADM
+
+    if(isset($_POST['recovery'])):
+    
+ 
+    // obejto USER
+    $user = new User();
+   // passo alguns valores
+    $email = $_POST['txt_email'];
+    $senha = Sistema::GerarSenha();
+    // verifico se tem este email na tabela 
+    if($user->GetUserEmail($email) > 0):
+        
+        // faz alteração 
+        $user->AlterarSenha($senha, $email);  
+        
+          // apos alterar envia email com a nova senha
+         $enviar = new EnviarEmail();
+         
+         $assunto = 'Nova senha ADM do site '. Sistema::DataAtualBR();
+         $destinatarios = array($email,  Config::SITE_EMAIl_ADM);
+         $msg = ' Nova senha no ADM do site, nova senha:  ' .$senha;
+         
+         
+         $enviar->Enviar($assunto, $msg, $destinatarios);
+         
+           echo '<div class="alert alert-success"> Foi enviado um email com a NOVA SENHA  </div>';
+         
+         
+    else:
+        
+         echo '<div class="alert alert-danger"> Email não encontrado </div>';
+    endif;
+
+    
+    
+    
+    
+endif;
+
+
+
+
+
+
+
+//IF DA PÁGINA DE PRODUTOS.PHP COM AS BUSCAS
+
+if(isset(Rotas::$pag[1]) && !isset($_POST['txt_buscar'])){
+    $produtos->GetProdutosCateID(Rotas::$pag[1]);
+}elseif(isset($_POST['txt_buscar'])){
+    
+                $nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+                $produtos->GetProdutosNome($nome);
+
+}elseif(isset($_POST['txt_buscar']) && isset(Rotas::$pag[1])){
+    
+                $nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+                $produtos->GetProdutosNome($nome);
+    
+}else{
+
+    $produtos->GetProdutos();
+}
+
+
+
+
+
+
+
+
+
+
+//CONSTANTES PARA PAGAMENTO PAGSEGURO
+const PS_EMAIL  = "meuemail@teste.com"; // email pagseguro
+    const PS_TOKEN  = "0DFD654F368810BBB"; // token produção
+    const PS_TOKEN_SBX = "0187D7A3BA7F";  // token do sandbox
+    const PS_AMBIENTE = "sandbox"; // production   /  sandbox
+
+
+
+
+
+CHAMANDO FUNÇÃO DE PAGAMENTO NO PEDIDO FINALIZAR
+
+ $pag = new PagamentoPS();
+      
+            $pag->Pagamento($_SESSION['CLI'], $_SESSION['PED'], $carrinho->GetCarrinho());
+            
+          //  var_dump($pag);
+            
+              // passando para o template dados do PS
+              $smarty->assign('PS_URL', $pag->psURL);            
+              $smarty->assign('PS_COD', $pag->psCod);
+              $smarty->assign('PS_SCRIPT', $pag->psURL_Script);
+
+
+
+
+ROTAS PARA RETORNO DO PEDIDO
+  static function pag_PedidoRetorno(){
+        
+        return self::get_SiteHOME() .'/pedido_retorno' ;
+    }
+   
+   static function pag_PedidoRetornoERRO(){
+        
+        return self::get_SiteHOME() .'/pedido_retorno_erro' ;
+    }
+    
+
+
+
+
+
+
+
+$smarty->assign('PAG_RETORNO', Rotas::pag_PedidoRetorno());
+$smarty->assign('PAG_ERRO',Rotas::pag_PedidoRetornoERRO());
+$smarty->assign('REF', $ref);
+
+
+
+
+
+
+CONTROLER PEDIDO RETORNO
+
+$smarty = new Template();
+
+// chamando a classe de pagamento 
+$pag = new PagamentoPS();
+
+
+
+// passo variaveis  para o template 
+$smarty->assign('PAGO',      $pag->info['pago']);
+$smarty->assign('CODIGO',    $pag->info['codigo']);
+$smarty->assign('REF',       $pag->info['referencia']);
+$smarty->assign('FORMA_PAG', $pag->info['forma_pag']);
+$smarty->assign('PAG_ITENS', Rotas::pag_CLienteItens());
+
+
+
+$smarty->display('pedido_retorno.tpl');
+
+
+else:
+    
+    echo '<div class="alert alert-danger">Sem transações  para informar </div>';
+    
+endif;
+
+
+
+
+
+
+
+PEDIDO RETORNO ERRO
+
+
+// chamando o objeto do template
+$smarty = new Template();
+
+// recebo o cod de referencia via URL
+$ref = Rotas::$pag[1];
+
+// passo variaveis para o template
+$smarty->assign('REF', $ref);
+$smarty->assign('PAG_ITENS', Rotas::pag_CLienteItens());
+
+// mostrando o template
+$smarty->display('pedido_retorno_erro.tpl');
+
+
+
+
+
+
+
+
+
+
+
+PEDIDO RETORNO TPL
+
+<h3 class="text-center text-success"> Obrigado pelo seu pedido </h3>
+<hr>
+<section class="row">
+    
+    <div class="col-md-3"></div> 
+   
+    <div class="col-md-6 thumbnail">
+        
+        
+         <h4> Informações do pagamento </h4>
+            <p> <b>Código transação:</b> {$CODIGO}</p>
+            <p> <b>Referencia:</b> {$REF}</p>
+            <p> <b>Status do pagamento:</b> {$PAGO}</p>
+            <p> <b>Forma pagamento: </b>{$FORMA_PAG}</p>
+            
+            
+         
+            <form name="pagamento" method="post" action="{$PAG_ITENS}">
+                <input type="hidden" name="cod_pedido" value="{$REF}">  
+                <button class="btn btn-success btn-block btn-lg"> Detalhes deste Pedido</button>
+
+
+
+            </form>        
+
+        
+    </div> 
+    <div class="col-md-3"></div> 
+    
+    
+   
+    
+    
+</section>
+
+
+
+
+
+
+
+PEDIDO RETORNO ERRO TPL
+
+<h3 class="text-center text-danger"> Ocorreu um problema no pagamento, ou foi cancelado</h3>
+<hr>
+<section  class="row">
+    
+    <div class="col-md-3"></div>
+   
+    
+    <div class="col-md-6">
+        
+          <p> Caso teve algum problema entre em contato conosco, informando <br>
+        o código de referência:<b> {$REF} </b>
+        </p> 
+        
+         <p> Ou pode tentar novamente o pagamento na seção "Pedidos" clicando em "Detalhes",<br>
+         verá seus itens comprados e o abaixo o botão "Completar Pagamento Agora"
+        </p>  
+        
+         <p> Para ir a tela do pedido e efetivar o pagamento, clique no botão.</p>  
+         <p>
+         <form name="pagamento" method="post" action="{$PAG_ITENS}">
+             <input type="hidden" name="cod_pedido" value="{$REF}">  
+             <button class="btn btn-success btn-block btn-lg"> Fazer Pagamento Agora</button>
+                 
+             
+             
+         </form>        
+             
+             
+         </p>
+        
+        
+        
+    </div>
+    <div class="col-md-3"></div>
+    
+    
+    
+    
+    
+</section>
+
+
+
+
+
+CALLBACK
+
+ PagSeguroLightbox({
+    code: '{$PS_COD}'
+    }, {
+    success : function(transactionCode) {
+      alert('Transação efetiva - ' + transactionCode);
+        window.location ='{$PAG_RETORNO}/{$REF}';
+    },
+    abort : function() {
+       alert('Erro no processo de pagamento');
+         window.location ='{$PAG_ERRO}/{$REF}';
+    }
+});     
+
+
+
+
+
+
+
+NOVO CONTROLLER DO PEDIDO RETORNO
+
+$smarty = new Template();
+
+// chamando a classe de pagamento 
+$pag = new PagamentoPS();
+
+// recebe notificação automática
+$pag->Nofificacao();
+
+
+// verifico se tem um COD REF na URL, se não tiver não mostro nada
+if(isset(Rotas::$pag[1]) ):
+
+// pegando a rota com o cod referencia GET
+$ref = Rotas::$pag[1];
+
+// pega a transação por REF apos ter efetuado a compra
+$pag->BuscarTransacaoREF($ref);
+
+// passo variaveis  para o template 
+$smarty->assign('PAGO',      $pag->info['pago']);
+$smarty->assign('CODIGO',    $pag->info['codigo']);
+$smarty->assign('REF',       $pag->info['referencia']);
+$smarty->assign('FORMA_PAG', $pag->info['forma_pag']);
+$smarty->assign('PAG_ITENS', Rotas::pag_CLienteItens());
+
+// 'pago' => $pago,
+//             'codigo'=>$codigo,
+//             'referencia'=> $referencia,
+//             'forma_pag'=>$forma_pag    
+
+
+
+// chamando o temnplate
+$smarty->display('pedido_retorno.tpl');
+
+
+else:
+    
+    echo '<div class="alert alert-danger">Sem transações  para informar </div>';
+    
+endif;
+
+
+
+
+
+
+
+
+
+CONTROLLER DE ITENS CLIENTES
+
+
+ // caso o status do pagamento for NAO, mostra novamente o botão de pagar 
+ if($itens->GetItens()[1]['ped_pag_status']=='NAO'):
+     
+       // PAGAMENTO PS --------------------------
+
+         $pag = new PagamentoPS();
+      
+         $pag->PagamentoITENS($_SESSION['CLI'], $itens->GetItens()[1], $itens->GetItens());
+        
+//         echo '<pre>';    
+//         var_dump($itens->GetItens());
+//         echo '</pre>';
+            
+              // passando para o template dados do PS
+              $smarty->assign('PS_URL', $pag->psURL);            
+              $smarty->assign('PS_COD', $pag->psCod);
+              $smarty->assign('PS_SCRIPT', $pag->psURL_Script);
+              $smarty->assign('REF',$pedido);
+              $smarty->assign('PAG_RETORNO', Rotas::pag_PedidoRetorno());
+              $smarty->assign('PAG_ERRO', Rotas::pag_PedidoRetornoERRO());
+              $smarty->assign('TEMA', Rotas::get_SiteTEMA());
+             
+   /// fim do pagamento            
+
+ endif;
+
+
+
+
+TEMPLATE DE ITENS CLIENTES
+
+             
+              {if $ITENS.1.ped_pag_status =='NAO'}          
+                         <!--  modos de pagamento e outras informações --> 
+        <section class="row">
+            <h3 class="text-center"> Formas de pagamento </h3>     
+            
+            <div class="col-md-4">
+              
+            </div>
+            <!-- botao de pagamento  -->
+            <div class="col-md-4">
+               
+                <button class="btn btn-success btn-lg btn-block" onclick="
+                        
+                   PagSeguroLightbox({
+    code: '{$PS_COD}'
+    }, {
+    success : function(transactionCode) {
+        alert('Transação efetiva - ' + transactionCode);
+        window.location ='{$PAG_RETORNO}/{$REF}';
+    },
+    abort : function() {
+        alert('Erro no processo de pagamento');
+         window.location ='{$PAG_ERRO}/{$REF}';
+    }
+});     
+                        
+                        ">
+                    
+                    
+                    
+                    
+                    Pagar Agora via PagSeguro</button>
+                
+                
+                   <img src="{$TEMA}/images/logo-pagseguro.png"  alt=""> 
+                   <script type="text/javascript" src="{$PS_SCRIPT}"></script>
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+         
+            
+        </section>
+                   {*   fim do IF do pagamento *}
+                   {/if}
