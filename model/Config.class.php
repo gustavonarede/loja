@@ -50,11 +50,15 @@ SITE_EMAIL_ADM = "";
 
 
     /*//CONSTANTES PARA O PAGSEGURO
-    const PS_EMAIL  = "qcursos@hotmail.com"; // email pagseguro
+    const PS_EMAIL  = "qcursos@hotmail.com";"rariscissima.joias@gmail.com"; // email pagseguro
     const PS_TOKEN  = "0E86ADF6373348509E7B35389D92004C"; // token produção
     const PS_TOKEN_SBX = "1FB4D7860EA9491BA7AB4A9D9336C275";  // token do sandbox
     const PS_AMBIENTE = "production"; // production   /  sandbox*/
 
+   // const PS_EMAIL  = "rariscissima.joias@gmail.com";
+    //const PS_TOKEN  = "0E86ADF6373348509E7B35389D92004C"; // token produção
+    //const PS_TOKEN_SBX = "0E86ADF6373348509E7B35389D92004C"; //"1FB4D7860EA9491BA7AB4A9D9336C275";  // token do sandbox
+    //const PS_AMBIENTE = "sandbox"; // production   /  sandbox*/
 }
 
 ?>
